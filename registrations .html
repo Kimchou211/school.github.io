@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+  <title>Student Registration | Teach Computer School</title>
+  <link rel="icon" href="./logo1.jpg">
+  <style>
+    body {
+      font-family: "Battambang", system-ui;
+  font-weight: 100;
+  font-style: normal;
+      background: #f4f7ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4a6bff;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      background: #4a6bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff6b4a;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>ចុះឈ្មោះចូលរៀន (Student Registration)</h2>
+    <form action="./registerions.php" method="POST">
+      
+      <div class="form-group">
+        <label>Full Name (គោត្តនាម និង នាម)</label>
+        <input type="text" name="fullname" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Date of Birth (ថ្ងៃខែឆ្នាំកំណើត)</label>
+        <input type="date" name="dob" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Phone Number (លេខទូរស័ព្ទ)</label>
+        <input type="text" name="phone" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Email Address (អាស័យដ្ឋានអ៊ីមែល)</label>
+        <input type="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Address (អាស័យដ្ឋាន)</label>
+        <textarea name="address" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label>Course Selection (ជ្រើសរើសការបង្រៀន)</label>
+        <select name="course" required>
+          <option value="">-- Select Course --</option>
+          <option value="Word">Microsoft Word</option>
+          <option value="Excel">Microsoft Excel</option>
+          <option value="PowerPoint">Microsoft PowerPoint</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Additional Message (សារ)</label>
+        <textarea name="message"></textarea>
+      </div>
+      
+      <button type="submit">Register Now</button>
+    </form>
+  </div>
+</body>
+</html>

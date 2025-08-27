@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <title>About Us - MINYLA Computer School</title>
+    <link rel="icon" href="./logo1.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4a6bff;
+            --secondary: #ff6b4a;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: white;
+            background-color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+            padding: 60px 0;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .about-content h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            font-size: 1.8rem;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .about-content ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about-content li {
+            margin-bottom: 10px;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .mission-card, .vision-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-card h3, .vision-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .team-section {
+            margin: 60px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-img {
+            height: 250px;
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-info h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .stats-section {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .values-section {
+            margin: 60px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .value-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .about-hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                padding: 20px;
+            }
+        }
+        /* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    --primary: #5c7cff;
+    --secondary: #ff7c5c;
+    --dark: #f8f9fa;
+    --light: #222;
+    --gray: #a0aec0;
+}
+
+[data-theme="dark"] body {
+    background-color: #121212;
+    color: var(--dark);
+}
+
+[data-theme="dark"] header {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .logo h1 {
+    color: var(--primary);
+}
+
+[data-theme="dark"] nav ul li a {
+    color: var(--dark);
+}
+
+[data-theme="dark"] .about-content,
+[data-theme="dark"] .mission-card,
+[data-theme="dark"] .vision-card,
+[data-theme="dark"] .team-member,
+[data-theme="dark"] .value-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: var(--dark);
+}
+
+[data-theme="dark"] .stats-section {
+    background: linear-gradient(to right, #3a56cc, #cc5a3a);
+}
+
+[data-theme="dark"] .about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+}
+
+[data-theme="dark"] footer {
+    background-color: #111;
+}
+
+[data-theme="dark"] .section-title {
+    color: var(--primary);
+}
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="./logo1.jpg" alt="MINYLA Computer School Logo">
+                    <h1>MINYLA Computer School</h1>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./About.html" >About</a></li>
+                        <li><a href="./contact.html" >Contact</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle" class="theme-toggle-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Page -->
+    <div id="about" class="page-content active">
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <h2>About MINYLA Computer School</h2>
+                <p>Empowering the next generation of technology professionals since 2010</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- About Content -->
+            <section class="about-content">
+                <h3>Our Story</h3>
+                <p>MINYLA Computer School was founded in 2010 with a mission to make quality computer education accessible to everyone. We believe that in today's digital world, computer literacy is not just an advantage but a necessity.</p>
+                
+                <p>What started as a small training center with just two instructors has now grown into a premier computer education institution with multiple locations and thousands of successful graduates. Our journey has been guided by our commitment to excellence and our passion for technology education.</p>
+                
+                <div class="mission-vision">
+                    <div class="mission-card">
+                        <h3>Our Mission</h3>
+                        <p>To empower individuals with the technical skills and knowledge needed to thrive in the digital economy, regardless of their background or prior experience. We strive to make technology education accessible, practical, and relevant to real-world needs.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h3>Our Vision</h3>
+                        <p>To be Cambodia's leading computer education provider, recognized for producing highly skilled technology professionals who drive innovation and digital transformation across all sectors of society.</p>
+                    </div>
+                </div>
+                
+                <h3>Our Values</h3>
+                <ul>
+                    <li><strong>Quality Education:</strong> We're committed to providing the highest standard of instruction with up-to-date curriculum and teaching methodologies.</li>
+                    <li><strong>Accessibility:</strong> We believe everyone should have access to tech education, regardless of their background or financial situation.</li>
+                    <li><strong>Innovation:</strong> We continuously update our curriculum to reflect the latest industry trends and technological advancements.</li>
+                    <li><strong>Community:</strong> We foster a supportive learning environment where students can collaborate and grow together.</li>
+                    <li><strong>Excellence:</strong> We strive for excellence in everything we do, from course design to student support services.</li>
+                </ul>
+            </section>
+
+            <!-- Stats Section -->
+            <!-- <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>5,000+</h3>
+                        <p>Students Trained</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>13+</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>25+</h3>
+                        <p>Expert Instructors</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>Employment Rate</p>
+                    </div>
+                </div>
+            </section> -->
+
+            <!-- Team Section -->
+            <section class="team-section">
+                <h2 class="section-title">Our teacher Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-img" style="background-image: url('./pic.jpg');"></div>
+                        <div class="team-info">
+                            <h3>Sophal Min</h3>
+                            <p>Founder & Director</p>
+                            <p>15+ years in IT education</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-img" style="background-image: url('./pic.jpg');"></div>
+                        <div class="team-info">
+                            <h3>Ratha Ly</h3>
+                            <p>Academic Dean</p>
+                            <p>PhD in Computer Science</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-img" style="background-image: url('./pic.jpg');"></div>
+                        <div class="team-info">
+                            <h3>Vannak Chen</h3>
+                            <p>Head of Instruction</p>
+                            <p>Industry expert in web development</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-img" style="background-image: url('./pic.jpg');"></div>
+                        <div class="team-info">
+                            <h3>Sreyneath Prom</h3>
+                            <p>Student Affairs Director</p>
+                            <p>Dedicated to student success</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section class="values-section">
+                <h2 class="section-title">What Makes Us Different</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Hands-On Learning</h3>
+                        <p>Our courses emphasize practical skills through real-world projects and exercises.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Career Focused</h3>
+                        <p>We prepare you for actual job requirements with industry-relevant curriculum.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Expert Instructors</h3>
+                        <p>Learn from professionals with years of industry experience.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Recognized Certification</h3>
+                        <p>Our certificates are valued by employers throughout Cambodia.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>MINYLA Computer School</h3>
+                        <!-- <p>Providing quality computer education since 2010. Our mission is to make tech skills accessible to everyone.</p> -->
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://t.me/kcndigitalstudy" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <a href="./index.html">Home</a>
+                        <a href="./About.html">About Us</a>
+                        <a href="./contact.html">Contact</a>
+                        <!-- <a href="#contact">Contact</a> -->
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact Info</h3>
+                       <p><i class="fas fa-map-marker-alt"></i> https://maps.app.goo.gl/wuobVro7cemT6LJd9</p>
+                    <p><i class="fas fa-phone"></i> +855 085890059</p>
+                    <p><i class="fas fa-envelope"></i> Krenkinchou@gmail.com</p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <!-- <p>&copy; 2023 MINYLA Computer School. All rights reserved.</p> -->
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Navigation and Page Switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page-content');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.getElementById('nav-menu');
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+            
+            // Navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('href').substring(1);
+                    switchPage(targetPage);
+                    
+                    // Close mobile menu after clicking a link
+                    navMenu.classList.remove('show');
+                });
+            });
+            
+            function switchPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show the target page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${pageId}`) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+        });
+        // Theme Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+    
+    // Check for saved theme preference or respect OS preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+    
+    // Toggle theme on button click
+    themeToggleBtn.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        
+        if (currentTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    });
+});
+    </script>
+</body>
+</html>
